@@ -19,8 +19,7 @@ function buscar(id){
             return false
         }
     }
-
-   console.table( cachorros.find(toFind))
+   return cachorros.find(toFind)
 }
 
 
@@ -30,18 +29,51 @@ let listar = ()=>{
 
 let descrever =(id)=>{
 
-    let petEncontrado = buscar(id)
+    const PET = buscar(id)
 
-    if(petEncontrado != undefined){
-        console.table(petEncontrado)
+    if(PET != undefined){
+
+        if(PET.sexo == 'm'){
+            console.log(`Nome: ${PET.nome} (Macho)`)
+        }else{
+            console.log(`Nome: ${PET.nome} (Fêmea)`)
+        }
+      
+       console.log(`Data De Nascimento: ${PET.dataDeNascimento}`)
+       console.log(`Peso: ${PET.peso}`)
+       console.log(`Castrado: ${PET.castrado}\n`)
+       
+       console.log('Vacinas')
+       console.table(PET.vacinas)
+       console.log('\nServços')
+       console.table(PET.servicos)
     }else{
-        console.error(`Não existe cachorro com o id ${id}`)
+        console.log(`Não existe cachorro com o id ${id}`)
     }
-    
 }
 
-let adcionar =(objeto)=>{
+let CodigoRandow = ()=>{
+    let numeroAelatorio = Math.random()*9999
+    let codigo = Math.round(numeroAelatorio)
+    return codigo
+   }
+
+   let adicionar = (novoPet)=>{
     
+    let vacinas = []
+    let servicos = []
+    let novoCodigo =  CodigoRandow()
+    //adicionar uma verificação se o codigo ja existe ai entao adicionar o codigo
+    novoPet.id = novoCodigo
+    novoPet.vacinas = vacinas
+    novoPet.servicos = servicos
+
+    cachorros.push(novoPet)
+
+    salvar()
+
+
+
 }
 
 
@@ -49,8 +81,8 @@ module.exports = {
     salvar : salvar,
     buscar : buscar,
     listar : listar,
-    descrever: descrever
-
+    descrever: descrever,
+    adicionar: adicionar
 }
 
 

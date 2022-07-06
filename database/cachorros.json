@@ -1,10 +1,11 @@
 [
     {
+        "nome": "Zoe",
         "id": 1,
         "castrado": true,
         "dataDeNascimento": "2020-08-21",
         "peso": 10,
-        "sexo": "m",
+        "sexo": "f",
         "vacinas": [
             {
                 "nome": "Antirrábica",
@@ -28,8 +29,7 @@
                 "nome": "tosa",
                 "data": "2021-08-07"
             }
-        ],
-        "nome": "Zoe"
+        ]
     },
     {
         "id": 2,
@@ -108,6 +108,26 @@
         "castrado": true,
         "dataDeNascimento": "2021-10-13",
         "peso": 1,
+        "vacinas": [],
+        "servicos": []
+    },
+    {
+        "nome": "marcao",
+        "sexo": "m",
+        "castrado": true,
+        "dataDeNascimento": "1992/02/18",
+        "peso": 8,
+        "id": 9568,
+        "vacinas": [],
+        "servicos": []
+    },
+    {
+        "nome": "arthemis",
+        "sexo": "f",
+        "castrado": true,
+        "dataDeNascimento": "2009-05-16",
+        "peso": 10,
+        "id": 5751,
         "vacinas": [],
         "servicos": []
     }

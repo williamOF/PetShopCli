@@ -30,7 +30,7 @@ literal que será exportado.
 ☐ Crie uma função chamada adicionar
   . Essa função deve adicionar um novo cachorro no arquivo
     de cachorros.
-  . Essa função deve receber como parâmetro um objeto literal com os seguintes campos
+  . Essa função de,ve receber como parâmetro um objeto literal com os seguintes campos
       + nome (string)
       + sexo (string)
       + castrado (boolean),
