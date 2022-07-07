@@ -22,9 +22,17 @@ function buscar(id){
    return cachorros.find(toFind)
 }
 
-
 let listar = ()=>{
-    console.table(cachorros)
+    var descreverPet = cachorros.map(function(item){
+        return{
+                nome: item.nome,
+                castrado: item.castrado,
+                dataDeNascimento : item.dataDeNascimento,
+                peso : item.peso,
+                sexo : item.sexo,
+                id : item.id
+        }})
+        console.table(descreverPet)
 }
 
 let descrever =(id)=>{

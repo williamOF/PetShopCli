@@ -27,7 +27,7 @@ literal que será exportado.
   . Essa função deve imprimir uma mensagem `Não existe cachorro com o id ${id}`
     caso não exista nenhum cachorro com o id passado.
 
-☐ Crie uma função chamada adicionar
+✔ Crie uma função chamada adicionar @started(22-07-06 12:00) @done(22-07-06 12:00) @lasted(20s)
   . Essa função deve adicionar um novo cachorro no arquivo
     de cachorros.
   . Essa função de,ve receber como parâmetro um objeto literal com os seguintes campos
