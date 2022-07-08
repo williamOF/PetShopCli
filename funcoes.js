@@ -70,7 +70,8 @@ let descrever =(id)=>{
         console.log(`Não existe cachorro com o id ${id}`)
     }
 }
-//          FUNÇÃO PARA ADCIONAR NOVOS PETS AO ARRAY CACHORROS     
+//          FUNÇÃO PARA ADCIONAR NOVOS PETS AO ARRAY CACHORROS   
+
    let adicionar = (novoPet)=>{
     let idx = cachorros.length+1
     
@@ -85,6 +86,7 @@ let descrever =(id)=>{
     salvar()
 }
 //          FUNÇÃO PARA ATRIBUIR UM SERVIÇO DE VACINAÇÃO A UM PET
+
 let vacinar =(id,vacina)=>{
 
     let petEcontrado = buscar(id)
@@ -99,6 +101,7 @@ let vacinar =(id,vacina)=>{
     }
 }
 //          FUNÇÃO PARA ATRIBUIR OUTROS DEMAIS SERVIÇOS OFERECIDOS
+
 let atribuirServico =(id,servicos)=>{
 
     let petEcontrado = buscar(id) 
@@ -114,27 +117,18 @@ let atribuirServico =(id,servicos)=>{
         console.error('[ERRO] não existe um cachorro com este id:')
     }
 }
-//          FUNÇÃO PARA REMOVER UM PET PASSADO SEU ID E SALVAR
+//          FUNÇÃO PARA REMOVER UM PET PASSADO SEU ID
+
 let remover = (id)=>{
 	petEcontrado = buscar(id)
+    if(petEcontrado = undefined){console.error('[ERRO] Não existe um cachorro com este id cadastrado reveja os dados e tente novamente!')}
 
-    if(petEcontrado != undefined){
-
-            let salvarArraySemPetIndicado = ()=>{
-
-                let caminho = path.resolve(__dirname+'/./database/cachorros.json')
-                let novosDados = JSON.stringify(novoArrayCachorros,null,4)
-                
-                fs.writeFileSync(caminho,novosDados)
-            }
-
-            let novoArrayCachorros = cachorros.filter((item)=>item.id != id)
-
-            salvarArraySemPetIndicado()
-    }else{
-        console.error('[ERRO] Não existe um cachorro com este id cadastrado reveja os dados e tente novamente!')
+    for(let i in cachorros){
+        if(cachorros[i].id == id){
+           let novoArr =  cachorros.splice(i,i)
+            salvar()
+        }
     }
-  
 }
 //             MUDULOS A SEREM EXPORTADOS 
 module.exports = {

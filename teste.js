@@ -1,6 +1,16 @@
-
+const fs = require('fs')
 const cachorros = require('./database/cachorros.json');
+const path = require('path')
 
+//console.table(cachorros)
+
+function salvar(){
+
+    let caminho = path.resolve(__dirname+'/./database/cachorros.json')
+    let novosDados = JSON.stringify(cachorros,null,4)
+    
+    fs.writeFileSync(caminho,novosDados)
+}
 
 function buscar(id){
 
@@ -14,26 +24,18 @@ function buscar(id){
    return cachorros.find(toFind)
 }
 
-
-
 let remover = (id)=>{
+
 	petEcontrado = buscar(id)
 
-	let novoArrayCachorros = cachorros.filter((item)=>item.id != id)
-	console.table(novoArrayCachorros)
+    for(let i in cachorros){
+        if(cachorros[i].id == id){
+           let novoArr =  cachorros.splice(i,i)
+           console.log(novoArr)
+            salvar()
+        }
+    }
 
 }
-let pegarDiaAtual = ()=>{
 
-    let data = new Date();
-
-    let dia = String(data.getDate()).padStart(2, '0');
-    let mes = String(data.getMonth() +1).padStart(2, '0');
-    let ano = data.getFullYear();
-
-    return dataAtual = dia + '-' + mes + '-' + ano;
-
-
-}
-const HOJE =  pegarDiaAtual()
-console.log(HOJE)
+remover(process.argv[2])
