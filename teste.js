@@ -1,23 +1,39 @@
-const cachorros = require('./database/cachorros.json')
+
+const cachorros = require('./database/cachorros.json');
 
 
+function buscar(id){
 
-  function descrever (){
-    
-
-    var descreverPet = cachorros.map(function(item){
-    return{
-            nome: item.nome,
-            castrado: item.castrado,
-            dataDeNascimento : item.dataDeNascimento,
-            peso : item.peso,
-            sexo : item.sexo
+    let toFind =(proucurar)=>{
+        if(proucurar.id == id){
+            return true
+        }else {
+            return false
+        }
     }
-    })
-    console.table(descreverPet)
-  }
+   return cachorros.find(toFind)
+}
 
 
-  descrever()
 
-  cachorros.ma
+let remover = (id)=>{
+	petEcontrado = buscar(id)
+
+	let novoArrayCachorros = cachorros.filter((item)=>item.id != id)
+	console.table(novoArrayCachorros)
+
+}
+let pegarDiaAtual = ()=>{
+
+    let data = new Date();
+
+    let dia = String(data.getDate()).padStart(2, '0');
+    let mes = String(data.getMonth() +1).padStart(2, '0');
+    let ano = data.getFullYear();
+
+    return dataAtual = dia + '-' + mes + '-' + ano;
+
+
+}
+const HOJE =  pegarDiaAtual()
+console.log(HOJE)

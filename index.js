@@ -50,7 +50,7 @@ function tratarRespostas(respostas) {
 
 
         case acoes.SERVICO:
-            funcoes.atribuirServico(respostas.idDoCachorroServico, respostas.servico);
+            funcoes.atribuirServico(respostas.idDoCachorroServico, respostas.servico); // cade o outro parametro ? a data ?? :
         break
 
 
